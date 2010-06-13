@@ -1,0 +1,16 @@
+<h1>编辑词条</h1>
+
+<% form_for(@tab) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit '更新' %>
+  </p>
+<% end %>
+
+<%= link_to '查看', @tab %> |
+<%= link_to '后退', tabs_path %>

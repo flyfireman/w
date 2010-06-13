@@ -1,0 +1,3094 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTabs (20091215173926)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "tabs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091215173926')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("tabs")[0m
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:06:11) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 2078ms (View: 2062, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2009-12-16 02:06:15) [GET]
+Rendering template within layouts/tabs
+Rendering tabs/new
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2009-12-16 02:06:22) [POST]
+  Parameters: {"authenticity_token"=>"PN9DbjojVqsILhc7NTfl+WcQmx+YxuaoJ/NqS+S3Cvw=", "tab"=>{"name"=>"Jack"}, "commit"=>"Create"}
+  [4;35;1mTab Create (0.0ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('Jack', '2009-12-15 18:06:22', '2009-12-15 18:06:22')[0m
+Redirected to http://localhost:3000/tabs/1
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-16 02:06:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 141ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:06:24) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-16 02:06:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:06:26) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#edit (for 127.0.0.1 at 2009-12-16 02:06:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/tabs
+Rendering tabs/edit
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/1/edit]
+
+
+Processing TabsController#update (for 127.0.0.1 at 2009-12-16 02:06:44) [PUT]
+  Parameters: {"authenticity_token"=>"PN9DbjojVqsILhc7NTfl+WcQmx+YxuaoJ/NqS+S3Cvw=", "tab"=>{"name"=>"Nurse"}, "commit"=>"Update", "id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+  [4;36;1mTab Update (0.0ms)[0m   [0;1mUPDATE "tabs" SET "name" = 'Nurse', "updated_at" = '2009-12-15 18:06:44' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/tabs/1
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-16 02:06:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:06:45) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2009-12-16 02:06:46) [GET]
+Rendering template within layouts/tabs
+Rendering tabs/new
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2009-12-16 02:06:55) [POST]
+  Parameters: {"authenticity_token"=>"PN9DbjojVqsILhc7NTfl+WcQmx+YxuaoJ/NqS+S3Cvw=", "tab"=>{"name"=>"Fun"}, "commit"=>"Create"}
+  [4;35;1mTab Create (0.0ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('Fun', '2009-12-15 18:06:55', '2009-12-15 18:06:55')[0m
+Redirected to http://localhost:3000/tabs/2
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-16 02:06:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 2) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/2]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:06:57) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 94ms (View: 47, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2009-12-16 02:06:58) [GET]
+Rendering template within layouts/tabs
+Rendering tabs/new
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2009-12-16 02:07:01) [POST]
+  Parameters: {"authenticity_token"=>"PN9DbjojVqsILhc7NTfl+WcQmx+YxuaoJ/NqS+S3Cvw=", "tab"=>{"name"=>"AV"}, "commit"=>"Create"}
+  [4;36;1mTab Create (0.0ms)[0m   [0;1mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('AV', '2009-12-15 18:07:01', '2009-12-15 18:07:01')[0m
+Redirected to http://localhost:3000/tabs/3
+Completed in 125ms (DB: 0) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-16 02:07:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:07:02) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#destroy (for 127.0.0.1 at 2009-12-16 02:07:04) [DELETE]
+  Parameters: {"authenticity_token"=>"PN9DbjojVqsILhc7NTfl+WcQmx+YxuaoJ/NqS+S3Cvw=", "id"=>"2"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 2) [0m
+  [4;36;1mTab Destroy (15.6ms)[0m   [0;1mDELETE FROM "tabs" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/tabs
+Completed in 16ms (DB: 16) | 302 Found [http://localhost/tabs/2]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:07:04) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-16 02:07:05) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 62ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:54:24) [GET]
+
+ActionController::RoutingError (No route matches "/tags" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:54:29) [GET]
+
+ActionController::RoutingError (No route matches "/tag" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:54:39) [GET]
+
+ActionController::RoutingError (No route matches "/tags" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:54:43) [GET]
+
+ActionController::RoutingError (No route matches "/tags/show" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:55:01) [GET]
+
+ActionController::RoutingError (No route matches "/tags/index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:55:04) [GET]
+
+ActionController::RoutingError (No route matches "/tag/index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-18 19:55:06) [GET]
+
+ActionController::RoutingError (No route matches "/tag/index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:56:08) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 2188ms (View: 2078, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-18 19:56:12) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:56:14) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-18 19:56:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:56:17) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2009-12-18 19:56:18) [GET]
+Rendering template within layouts/tabs
+Rendering tabs/new
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2009-12-18 19:56:23) [POST]
+  Parameters: {"authenticity_token"=>"cfKDGzehh2Udy9SxOziMsDR7JaMcZZBLUbu1xK4a9E0=", "tab"=>{"name"=>"\xE7\x87\x95\xE5\xAD\x90~"}, "commit"=>"Create"}
+  [4;35;1mTab Create (15.6ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('ÁáïÂ≠ê~', '2009-12-18 11:56:23', '2009-12-18 11:56:23')[0m
+Redirected to http://localhost:3000/tabs/4
+Completed in 47ms (DB: 16) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-18 19:56:23) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 4) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 62ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/4]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:56:25) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 78ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-18 19:56:27) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 4) [0m
+Rendering template within layouts/tabs
+Rendering tabs/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/4]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:56:28) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/tabs
+Rendering tabs/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:58:23) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+
+ActionView::TemplateError (undefined method `logged_in?' for #<ActionView::Base:0x15aae60>) on line #16 of app/views/layouts/application.rhtml:
+13:   <h1 id="logo">Emporium&trade;</h1>
+14:   <h2 id="slogan">Books on Rails</h2>
+15:   <p id="loginlogout">
+16:   <% if logged_in? %>
+17:      Logged in as <%= current_user.login %>
+18:      (<%= link_to "Logout", :controller => "/account", :action => "logout" %>)
+19:      <% else %>
+
+    app/views/layouts/application.rhtml:16:in `_run_rhtml_app47views47layouts47application46rhtml'
+    app/controllers/tabs_controller.rb:7:in `index'
+    <internal:prelude>:8:in `synchronize'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (171.9ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:59:23) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 78ms (View: 78, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2009-12-18 19:59:31) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/4]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2009-12-18 19:59:33) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 109ms (View: 62, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-05 23:08:05) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 1688ms (View: 1672, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:08:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#edit (for 127.0.0.1 at 2010-02-05 23:08:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/edit
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/tabs/1/edit]
+
+
+Processing TabsController#update (for 127.0.0.1 at 2010-02-05 23:08:36) [PUT]
+  Parameters: {"authenticity_token"=>"gaPGlLJPCKdLNVDRzDT+Ev6zY4lPRfRI+XvZpBjPZro=", "tab"=>{"name"=>"Nudsa"}, "commit"=>"Update", "id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+  [4;36;1mTab Update (0.0ms)[0m   [0;1mUPDATE "tabs" SET "name" = 'Nudsa', "updated_at" = '2010-02-05 15:08:36' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/tabs/1
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:08:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:16:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 875ms (View: 719, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:16:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-05 23:16:47) [GET]
+
+ActionController::RoutingError (No route matches "/publishers" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:16:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-05 23:16:57) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-02-05 23:17:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-05 23:17:08) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#destroy (for 127.0.0.1 at 2010-02-05 23:17:14) [DELETE]
+  Parameters: {"authenticity_token"=>"gaPGlLJPCKdLNVDRzDT+Ev6zY4lPRfRI+XvZpBjPZro=", "id"=>"4"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 4) [0m
+  [4;35;1mTab Destroy (0.0ms)[0m   [0mDELETE FROM "tabs" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/tabs
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/tabs/4]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-05 23:17:14) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-06 00:12:07) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 1984ms (View: 1938, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:12:12) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:14:54) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:14:55) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:14:55) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:14:56) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 00:14:56) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-02-06 00:22:28) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 297ms (View: 266, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:44:01) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 2234ms (View: 2203, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 20:44:03) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:44:30) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:46:34) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:46:36) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:46:59) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 20:46:59) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (484.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 20:47:27) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 219ms (View: 188, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-04-29 20:47:35) [POST]
+  Parameters: {"authenticity_token"=>"rt6bS9vg+wXwc707IKXKieAxluBcSyypQn0ZApvf430=", "tab"=>{"name"=>"\xE7\x87\x95\xE5\xAD\x90~"}, "commit"=>"Create"}
+  [4;36;1mTab Create (15.6ms)[0m   [0;1mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('ÁáïÂ≠ê~', '2010-04-29 12:47:35', '2010-04-29 12:47:35')[0m
+Redirected to http://localhost:3000/tabs/5
+Completed in 94ms (DB: 16) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-29 20:47:35) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 188ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/5]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-29 20:47:37) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-29 20:47:41) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-29 20:47:42) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-29 20:47:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-29 20:47:45) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 62ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+  [4;36;1mSQL (15.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTabs (20091215173926)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "tabs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (15.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091215173926')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("tabs")[0m
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 21:39:46) [GET]
+
+NoMethodError (undefined method `headers' for nil:NilClass):
+  app/controllers/application_controller.rb:14:in `configure_charsets'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (140.6ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:38:45) [GET]
+
+NoMethodError (undefined method `headers' for nil:NilClass):
+  app/controllers/application_controller.rb:14:in `configure_charsets'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:39:40) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: near "SET": syntax error: SET NAMES gb2312[0m
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 1781ms (View: 1750, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:40:10) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: near "SET": syntax error: SET NAMES gb2312[0m
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 23:40:10) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (328.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:40:53) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: near "SET": syntax error: SET NAMES gb2312[0m
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 125ms (View: 94, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 23:40:53) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (625.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:41:45) [GET]
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: near "SET": syntax error: SET NAMES gb2312[0m
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 23:41:45) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:44:04) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 23:44:04) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:44:06) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-04-29 23:44:06) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (1015.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-29 23:44:25) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:08:33) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 6141ms (View: 4312, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:09:08) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 938ms (View: 578, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:09:11) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 109ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:10:39) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 938ms (View: 312, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:40:34) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 312ms (View: 312, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:40:37) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (140.6ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:36) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (140.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:39) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (703.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:40) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (343.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:41) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:54) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (625.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:56) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (765.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:42:59) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (140.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:43:56) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:44:13) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:44:15) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (390.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:44:16) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (906.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:44:17) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:44:19) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:45:16) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (1578.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:45:20) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 359ms (View: 359, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:45:22) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-04-30 00:45:32) [POST]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "tab"=>{"name"=>"\xE5\xB9\xBF\xE5\x91\x8A"}, "commit"=>"Create"}
+  [4;35;1mTab Create (46.9ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('ÂπøÂëä', '2010-04-29 16:45:32', '2010-04-29 16:45:32')[0m
+Redirected to http://localhost:3000/tabs/1
+Completed in 62ms (DB: 47) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:45:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:45:34) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:45:34) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (406.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:45:38) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:45:38) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (171.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:46:17) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:17) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (156.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:46:19) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:19) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (593.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:46:20) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:20) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:46:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:46:24) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:24) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (765.6ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:31) [GET]
+
+ActionController::RoutingError (No route matches "/tabs%E3%80%81index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:46:37) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:46:51) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:46:51) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#edit (for 127.0.0.1 at 2010-04-30 00:47:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/edit
+Completed in 359ms (View: 344, DB: 0) | 200 OK [http://localhost/tabs/1/edit]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:47:29) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 109ms (View: 62, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:47:33) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "–¬¥ Ãı" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-30 00:47:34) [GET]
+
+Encoding::CompatibilityError (incompatible character encodings: ASCII-8BIT and GB2312):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:48:19) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ink_to "Êñ∞ËØçÊù°" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "Êñ∞ËØçÊù°" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+ActionView::TemplateError (invalid byte sequence in GB2312) in app/views/tabs/index.html.erb:
+
+    app/controllers/tabs_controller.rb:7:in `index'
+    <internal:prelude>:8:in `synchronize'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (1171.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:48:26) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:49:10) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+ERROR: compiling _run_erb_app47views47tabs47index46html46erb RAISED D:/RBOR/w/app/views/tabs/index.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ink_to "Êñ∞ËØçÊù°" new_tab_path ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47tabs47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Listing tabs</h1>\n\n<table>\n  <tr>\n    <th>Name</th>\n  </tr>\n\n"
+
+
+
+
+
+
+;  @tabs.each do |tab| ; @output_buffer.concat "\n  <tr>\n    <td>"
+
+; @output_buffer.concat((h tab.name ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Show', tab ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Edit', edit_tab_path(tab) ).to_s); @output_buffer.concat "</td>\n    <td>"
+; @output_buffer.concat(( link_to 'Destroy', tab, :confirm => 'Are you sure?', :method => :delete ).to_s); @output_buffer.concat "</td>\n  </tr>\n"
+
+;  end ; @output_buffer.concat "\n</table>\n\n<br />\n\n"
+
+
+
+
+; @output_buffer.concat(( link_to "Êñ∞ËØçÊù°" new_tab_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/RBOR/w/app/controllers/tabs_controller.rb:7:in `index'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+G:/Ruby19/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+G:/Ruby19/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+ActionView::TemplateError (invalid byte sequence in GB2312) in app/views/tabs/index.html.erb:
+
+    app/controllers/tabs_controller.rb:7:in `index'
+    <internal:prelude>:8:in `synchronize'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (1203.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:49:44) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:49:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:49:55) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:49:59) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:50:33) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tab with ID=index):
+  app/controllers/tabs_controller.rb:16:in `show'
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (171.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:50:57) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-04-30 00:51:06) [POST]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "tab"=>{"name"=>"\xE6\x96\xB0\xE4\xB8\xAD\xE5\x9B\xBD"}, "commit"=>"Create"}
+  [4;36;1mTab Create (31.2ms)[0m   [0;1mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('Êñ∞‰∏≠ÂõΩ', '2010-04-29 16:51:06', '2010-04-29 16:51:06')[0m
+Redirected to http://localhost:3000/tabs/2
+Completed in 31ms (DB: 31) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:51:06) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/tabs/2]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:08) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:51:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:11) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:51:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/2]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:14) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#destroy (for 127.0.0.1 at 2010-04-30 00:51:17) [DELETE]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "id"=>"2"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 2) [0m
+  [4;36;1mTab Destroy (0.0ms)[0m   [0;1mDELETE FROM "tabs" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/tabs
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/tabs/2]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:17) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:51:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:20) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:51:56) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:52:15) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:52:18) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:52:52) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:52:55) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:52:56) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:53:17) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:53:32) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:53:36) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:53:58) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:54:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:54:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:54:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:54:53) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#edit (for 127.0.0.1 at 2010-04-30 00:54:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/edit
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1/edit]
+
+
+Processing TabsController#edit (for 127.0.0.1 at 2010-04-30 00:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/edit
+Completed in 406ms (View: 406, DB: 0) | 200 OK [http://localhost/tabs/1/edit]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:55:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:55:46) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 00:55:48) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-04-30 00:55:55) [POST]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "tab"=>{"name"=>"\xE4\xBE\x9B\xE5\xBA\x94\xE5\x95\x86"}, "commit"=>"\xE6\x8F\x90\xE4\xBA\xA4"}
+  [4;36;1mTab Create (15.6ms)[0m   [0;1mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('‰æõÂ∫îÂïÜ', '2010-04-29 16:55:55', '2010-04-29 16:55:55')[0m
+Redirected to http://localhost:3000/tabs/3
+Completed in 31ms (DB: 16) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 00:55:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 00:55:57) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:00:35) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 422ms (View: 375, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 01:00:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:00:40) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 01:00:42) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:00:43) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:02:21) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#destroy (for 127.0.0.1 at 2010-04-30 01:04:55) [DELETE]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "id"=>"3"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 3) [0m
+  [4;35;1mTab Destroy (15.6ms)[0m   [0mDELETE FROM "tabs" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/tabs
+Completed in 31ms (DB: 16) | 302 Found [http://localhost/tabs/3]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:04:55) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-04-30 01:05:00) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-04-30 01:05:06) [POST]
+  Parameters: {"authenticity_token"=>"WHwXAgwHdP6DcIVUVS5clok93wzsT++y3iKrQRC694g=", "tab"=>{"name"=>"\xE9\xB8\xA1\xE5\xB7\xB4"}, "commit"=>"\xE6\x8F\x90\xE4\xBA\xA4"}
+  [4;35;1mTab Create (31.2ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('È∏°Â∑¥', '2010-04-29 17:05:06', '2010-04-29 17:05:06')[0m
+Redirected to http://localhost:3000/tabs/4
+Completed in 47ms (DB: 31) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-04-30 01:05:06) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/4]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:05:08) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:06:16) [GET]
+  [4;36;1mTab Load (46.9ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 297ms (View: 219, DB: 47) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-04-30 01:06:42) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 219ms (View: 188, DB: 16) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:01:34) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 7828ms (View: 6359, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-09 21:01:42) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (1703.1ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:01:44) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-09 21:01:44) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:02:42) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-09 21:02:42) [GET]
+
+ArgumentError (invalid byte sequence in UTF-8):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (593.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:03:19) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 297ms (View: 266, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-09 21:03:20) [GET]
+
+ActionController::RoutingError (No route matches "/11.jpg" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:04:04) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 172ms (View: 141, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-09 21:04:04) [GET]
+
+ActionController::RoutingError (No route matches "/11.jpg" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:04:20) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:04:55) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:05:23) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:05:24) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:05:39) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:06:05) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:06:21) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 281ms (View: 188, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:07:38) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:11:08) [GET]
+  [4;35;1mTab Load (15.6ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 1547ms (View: 453, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:13:50) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:13:52) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:14:31) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 62ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:14:39) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-09 21:14:44) [GET]
+  [4;36;1mTab Load (15.6ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 219ms (View: 109, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-05-10 21:05:41) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 2125ms (View: 2078, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:05:56) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:13:31) [GET]
+  [4;35;1mTab Load (62.5ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 4000ms (View: 1656, DB: 62) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:13:45) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:17:19) [GET]
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:18:33) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-05-10 21:18:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTab Load (0.0ms)[0m   [0mSELECT * FROM "tabs" WHERE ("tabs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 141ms (View: 125, DB: 0) | 200 OK [http://localhost/tabs/1]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-10 21:18:40) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-05-10 21:18:42) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#create (for 127.0.0.1 at 2010-05-10 21:18:49) [POST]
+  Parameters: {"authenticity_token"=>"hJGKbT7HBSgPjW5JWfo+pzyhg2VvXbIQ7Gn2HDJKB8s=", "tab"=>{"name"=>"\xE5\x9D\x8F\xE4\xBA\xBA"}, "commit"=>"\xE6\x8F\x90\xE4\xBA\xA4"}
+  [4;35;1mTab Create (15.6ms)[0m   [0mINSERT INTO "tabs" ("name", "created_at", "updated_at") VALUES('Âùè‰∫∫', '2010-05-10 13:18:49', '2010-05-10 13:18:49')[0m
+Redirected to http://localhost:3000/tabs/5
+Completed in 31ms (DB: 16) | 302 Found [http://localhost/tabs]
+
+
+Processing TabsController#show (for 127.0.0.1 at 2010-05-10 21:18:49) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" WHERE ("tabs"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering tabs/show
+Completed in 94ms (View: 31, DB: 0) | 200 OK [http://localhost/tabs/5]
+
+
+Processing TabsController#new (for 127.0.0.1 at 2010-05-31 22:59:24) [GET]
+Rendering template within layouts/application
+Rendering tabs/new
+Completed in 2344ms (View: 2297, DB: 0) | 200 OK [http://localhost/tabs/new]
+
+
+Processing TabsController#index (for 127.0.0.1 at 2010-05-31 22:59:34) [GET]
+  [4;36;1mTab Load (0.0ms)[0m   [0;1mSELECT * FROM "tabs" [0m
+Rendering template within layouts/application
+Rendering tabs/index
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/tabs]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-31 22:59:43) [GET]
+
+ActionController::RoutingError (No route matches "/post" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-31 22:59:49) [GET]
+
+ActionController::RoutingError (No route matches "/post/index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-31 23:00:12) [GET]
+
+ActionController::RoutingError (No route matches "/posts/index" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-31 23:00:16) [GET]
+
+ActionController::RoutingError (No route matches "/posts" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  G:/Ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)

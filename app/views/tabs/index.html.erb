@@ -1,0 +1,25 @@
+<h1>词条列表</h1>
+
+<table>
+  <tr>
+    <th>词条名</th>
+  </tr>
+
+<% @tabs.each do |tab| %>
+  <tr>
+    <td><%=h tab.name %></td>
+    <td><%= link_to '查看', tab %></td>
+    <td><%= link_to '编辑', edit_tab_path(tab) %></td>
+    <td><%= link_to '删除', tab, :confirm => "你确定要删除词条<#{tab.name}>?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="news">
+  <img src="/images/rails.png", alt="燕子">
+  <p>Some text</p>
+  <div class="clear"></div>
+</div>
+
+<%= link_to "新词条" ,new_tab_path %>
